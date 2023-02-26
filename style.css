@@ -1,0 +1,77 @@
+h1{
+    text-align: center;
+    font-size: 100px;
+}
+.grid-container {
+    justify-content:  center;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 20px;
+    column-gap: 200px;
+    row-gap: 25px;
+  }
+  .block1{
+    display: flex;
+    width: 87%;
+    height: 75%;
+    background-color: green;
+    padding: 20px;
+
+ 
+  }
+  .fontServ {
+    color: White;
+    font-size: 2em;
+    text-align: center
+  }
+  .block2{
+    color: black;
+    width: 75%;
+    height: 75%;
+    background-color: yellow;
+    padding: 20px;
+ 
+  }
+  .block3{
+    width: 87%;
+    height: 75%;
+    background-color:blue;
+    padding: 20px;
+ 
+  }
+  .block4{
+    width: 75%;
+    height: 75%;
+    background-color: red;
+    padding: 20px;
+ 
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    font-size: 40px;
+    text-align: center;
+  }
+main{
+    text-align: center;
+}
+
+h3{
+  font-size: 50px;
+  display: inline;  
+}
+div>input{
+  width: 100px;
+  height: 50px;
+  font-size: 2.5em;
+}
+button{
+  width: 300px;
+  height: 100px;
+  font-size: 2.5em;
+}
+.rp{
+  width: 300px;
+  height: 100px;
+  font-size: 2.5em;
+}
