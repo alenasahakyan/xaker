@@ -1,27 +1,24 @@
-var NewCord= require("./NewCord");
-var random = require("./random.js");
-
-module.exports = class Angel extends NewCord {
-    constructor(x, y, index){
+ class Angel extends NewCord {
+    constructor(x, y, index) {
         super(x, y, index);
         this.energy = 8;
     }
-   getNewCoordinates() {
-       this.directions = [
-           [this.x - 1, this.y - 1],
-           [this.x, this.y - 1],
-           [this.x + 1, this.y - 1],
-           [this.x - 1, this.y],
-           [this.x + 1, this.y],
-           [this.x - 1, this.y + 1],
-           [this.x, this.y + 1],
-           [this.x + 1, this.y + 1]
-       ];
-   }
-   chooseCell(character) {
-       this.getNewCoordinates();
-       return super.chooseCell(character);
-   }
+    getNewCoordinates() {
+        this.directions = [
+            [this.x - 1, this.y - 1],
+            [this.x, this.y - 1],
+            [this.x + 1, this.y - 1],
+            [this.x - 1, this.y],
+            [this.x + 1, this.y],
+            [this.x - 1, this.y + 1],
+            [this.x, this.y + 1],
+            [this.x + 1, this.y + 1]
+        ];
+    }
+    chooseCell(character) {
+        this.getNewCoordinates();
+        return super.chooseCell(character);
+    }
 
 
     mul() {
@@ -58,7 +55,7 @@ module.exports = class Angel extends NewCord {
     }
 
     eat() {
-        var found = this.chooseCell(4,1);
+        var found = this.chooseCell(4, 1);
 
         var newCell = random(found);
         if (newCell) {

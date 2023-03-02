@@ -1,27 +1,24 @@
-var NewCord= require("./NewCord");
-var random = require("./random.js");
-
-module.exports = class Demon extends NewCord{
-    constructor(x, y, index){
+class Demon extends NewCord {
+    constructor(x, y, index) {
         super(x, y, index);
         this.energy = 10;
     }
-   getNewCoordinates() {
-       this.directions = [
-           [this.x - 1, this.y - 1],
-           [this.x, this.y - 1],
-           [this.x + 1, this.y - 1],
-           [this.x - 1, this.y],
-           [this.x + 1, this.y],
-           [this.x - 1, this.y + 1],
-           [this.x, this.y + 1],
-           [this.x + 1, this.y + 1]
-       ];
-   }
-   chooseCell(character) {
-       this.getNewCoordinates();
-       return super.chooseCell(character);
-   }
+    getNewCoordinates() {
+        this.directions = [
+            [this.x - 1, this.y - 1],
+            [this.x, this.y - 1],
+            [this.x + 1, this.y - 1],
+            [this.x - 1, this.y],
+            [this.x + 1, this.y],
+            [this.x - 1, this.y + 1],
+            [this.x, this.y + 1],
+            [this.x + 1, this.y + 1]
+        ];
+    }
+    chooseCell(character) {
+        this.getNewCoordinates();
+        return super.chooseCell(character);
+    }
 
     mul() {
         var found = this.chooseCell(0);
@@ -34,7 +31,7 @@ module.exports = class Demon extends NewCord{
             demonarr.push(new Demon(newX, newY));
             this.energy = 10;
         }
-    }   
+    }
     move() {
         var found = this.chooseCell(0);
         var newCell = random(found);
@@ -57,7 +54,7 @@ module.exports = class Demon extends NewCord{
     }
 
     eat() {
-        var found = this.chooseCell(1,2,3);
+        var found = this.chooseCell(1, 2, 3);
         var newCell = random(found);
         if (newCell) {
             var newX = newCell[0];
@@ -73,8 +70,8 @@ module.exports = class Demon extends NewCord{
                 if (newX == grassArr[i].x && newY == grassArr[i].y) {
                     grassArr.splice(i, 1);
                     break;
+                }
             }
-        }
             if (this.energy >= 30) {
                 this.mul();
             }
