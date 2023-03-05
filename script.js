@@ -40,7 +40,7 @@ function generator(matrixSize, grass1, grassEat1, angel1, demon1) {
 }
 
 function weather() {
-    console.log("yay")
+    
     if (weath == "winter") {
         weath = "spring"
     }
@@ -120,7 +120,7 @@ function clickHandler(evt) {
 
     clickCount++;
     console.log(evt);
-    var str = "Thanks for clicking " + clickCount;
+    var str = " Click to stop ";
     this.innerText = str;
     start = !start
 }
@@ -130,12 +130,11 @@ p.addEventListener("click", clickHandler);
 
 
 function setup() {
-    generator(25, 20, 5, 10, 4);
+    generator(25, 20, 5, 1, 4);
     frameRate(5);
 creatingObjects();
 
 }
-
 function draw() {
     if(start)
     {if(frameCount % 15 == 0)
@@ -171,10 +170,18 @@ function draw() {
             else if (matrix[y][x] == 4) {
                 fill("Red");
             }
-
+            
+            
             rect(x * side, y * side, side, side);
 
         }
     }
     game()}
 }
+function mouseClicked() {
+    clickCount++
+    console.log(Math.floor(mouseX/side), Math.floor(mouseY/side))
+    
+    grassArr.push(new Grass(mouseX, mouseY))
+   }
+
